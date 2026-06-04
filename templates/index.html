@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Churn Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 700px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .col {
+            width: 48%;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1e4ed8;
+        }
+
+        .result {
+            width: 700px;
+            margin: 20px auto;
+            padding: 15px;
+            background: #e6ffed;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Customer Churn Prediction</h2>
+
+<form method="POST">
+
+    <div class="row">
+        <div class="col">
+            <label>Gender</label>
+            <select name="Gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Senior Citizen</label>
+            <select name="Senior Citizen">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Partner</label>
+            <select name="Partner">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Dependents</label>
+            <select name="Dependents">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Tenure Months</label>
+            <input type="number" name="Tenure Months" required>
+        </div>
+
+        <div class="col">
+            <label>Phone Service</label>
+            <select name="Phone Service">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Multiple Lines</label>
+            <select name="Multiple Lines">
+                <option>Yes</option>
+                <option>No</option>
+                <option>No phone service</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Internet Service</label>
+            <select name="Internet Service">
+                <option>DSL</option>
+                <option>Fiber optic</option>
+                <option>No</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Online Security</label>
+            <select name="Online Security">
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Online Backup</label>
+            <select name="Online Backup">
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Device Protection</label>
+            <select name="Device Protection">
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Tech Support</label>
+            <select name="Tech Support">
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Streaming TV</label>
+            <select name="Streaming TV">
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Streaming Movies</label>
+            <select name="Streaming Movies">
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Contract</label>
+            <select name="Contract">
+                <option>Month-to-month</option>
+                <option>One year</option>
+                <option>Two year</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Paperless Billing</label>
+            <select name="Paperless Billing">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Payment Method</label>
+            <select name="Payment Method">
+                <option>Electronic check</option>
+                <option>Mailed check</option>
+                <option>Bank transfer (automatic)</option>
+                <option>Credit card (automatic)</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <label>Monthly Charges</label>
+            <input type="number" step="0.01" name="Monthly Charges" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Total Charges</label>
+            <input type="number" step="0.01" name="Total Charges" required>
+        </div>
+
+        <div class="col">
+            <label>CLTV</label>
+            <input type="number" step="0.01" name="CLTV" required>
+        </div>
+    </div>
+
+    <button type="submit">Predict Churn</button>
+
+</form>
+
+{% if result %}
+<div class="result">
+    <h3>Prediction: {{ result.churn_label }}</h3>
+    <h4>Probability: {{ result.churn_probability }}</h4>
+</div>
+{% endif %}
+
+</body>
+</html>
